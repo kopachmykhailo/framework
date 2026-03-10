@@ -1,153 +1,82 @@
-const { createServer } = require("node:http");
+const http = require("http");
+const config = require("./config");
+const log = require("./logger");
 
-let BOOKS = [
-  { id: 1, title: "Kobzar", author: "Shevchenko", year: 1840 },
-];
+const server = http.createServer((req, res) => {
 
-const PORT = process.env.PORT || 3000;
-const HOSTNAME = process.env.HOSTNAME || "localhost";
+  if (req.method === "GET" && req.url === "/health") {
 
-const server = createServer((req, res) => {
-  const method = req.method;
-  const parsedUrl = new URL(req.url, `http://${req.headers.host}`);
-  const pathname = parsedUrl.pathname;
+    const health = {
+      pid: process.pid,
+      nodeVersion: process.version,
+      platform: process.platform,
+      uptime: process.uptime(),
+      memoryUsage: process.memoryUsage()
+    };
 
-  res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.writeHead(200, {"Content-Type": "application/json"});
+    res.end(JSON.stringify(health));
 
-  // GET /books?author=Shevchenko
-
-  if (method === "GET" && pathname === "/books") {
-    const author = parsedUrl.searchParams.get("author");
-
-    let result = [...BOOKS];
-
-    if (author) {
-      result = result.filter(
-        (book) => book.author.toLowerCase() === author.toLowerCase()
-      );
+    if (config.NODE_ENV === "development") {
+      log("INFO", req.method, req.url, 200);
     }
-
-    res.statusCode = 200;
-    return res.end(JSON.stringify({
-      count: result.length,
-      items: result,
-    }));
-  }
-
-  // POST /books
-
-  if (method === "POST" && pathname === "/books") {
-    let body = "";
-
-    req.on("data", (chunk) => {
-      body += chunk.toString();
-    });
-
-    req.on("end", () => {
-      try {
-        const data = JSON.parse(body);
-
-        if (!data.title || !data.author || typeof data.year !== "number") {
-          res.statusCode = 400;
-          return res.end(JSON.stringify({
-            error: "Title, author and numeric year are required",
-          }));
-        }
-
-        const lastId = BOOKS.length > 0 ? BOOKS[BOOKS.length - 1].id : 0;
-
-        const newBook = {
-          id: lastId + 1,
-          title: data.title,
-          author: data.author,
-          year: data.year,
-        };
-
-        BOOKS.push(newBook);
-
-        res.statusCode = 201;
-        res.end(JSON.stringify({
-          message: "Created",
-          book: newBook,
-        }));
-      } catch {
-        res.statusCode = 400;
-        res.end(JSON.stringify({ error: "Invalid JSON" }));
-      }
-    });
 
     return;
   }
 
-  // PATCH /books/:id
+  res.writeHead(404);
+  res.end("Not Found");
 
-  if (method === "PATCH" && pathname.startsWith("/books/")) {
-    const id = parseInt(pathname.split("/")[2]);
-    let body = "";
-
-    req.on("data", (chunk) => {
-      body += chunk.toString();
-    });
-
-    req.on("end", () => {
-      try {
-        const index = BOOKS.findIndex((b) => b.id === id);
-
-        if (index === -1) {
-          res.statusCode = 404;
-          return res.end(JSON.stringify({ error: "Book not found" }));
-        }
-
-        const updates = JSON.parse(body);
-
-        if (updates.id) {
-          res.statusCode = 400;
-          return res.end(JSON.stringify({ error: "Cannot update id" }));
-        }
-
-        if (updates.year && typeof updates.year !== "number") {
-          res.statusCode = 400;
-          return res.end(JSON.stringify({ error: "Year must be number" }));
-        }
-
-        BOOKS[index] = { ...BOOKS[index], ...updates };
-
-        res.statusCode = 200;
-        res.end(JSON.stringify({
-          message: "Updated",
-          book: BOOKS[index],
-        }));
-      } catch {
-        res.statusCode = 400;
-        res.end(JSON.stringify({ error: "Invalid JSON" }));
-      }
-    });
-
-    return;
+  if (config.NODE_ENV === "development") {
+    log("ERROR", req.method, req.url, 404);
   }
 
-  // DELETE /books/:id
-
-  if (method === "DELETE" && pathname.startsWith("/books/")) {
-    const id = parseInt(pathname.split("/")[2]);
-
-    const originalLength = BOOKS.length;
-    BOOKS = BOOKS.filter((book) => book.id !== id);
-
-    if (BOOKS.length === originalLength) {
-      res.statusCode = 404;
-      return res.end(JSON.stringify({ error: "Book not found" }));
-    }
-
-    res.statusCode = 200;
-    return res.end(JSON.stringify({ message: "Deleted" }));
-  }
-
-  // 404
-  res.statusCode = 404;
-  res.end(JSON.stringify({ error: "Route not found" }));
 });
 
-server.listen(PORT, HOSTNAME, () => {
-  console.log(`Server running at http://${HOSTNAME}:${PORT}/`);
+server.listen(config.PORT, config.HOSTNAME, () => {
+  console.log(`Server running at http://${config.HOSTNAME}:${config.PORT}`);
+});
+
+function gracefulShutdown(signal) {
+
+  console.log(`Received ${signal}`);
+
+  const timeout = setTimeout(() => {
+    console.error("Force shutdown");
+    process.exit(1);
+  }, 10000);
+
+  server.close((err) => {
+
+    clearTimeout(timeout);
+
+    if (err) {
+      console.error("Shutdown error");
+      process.exit(1);
+    }
+
+    console.log("Server closed gracefully");
+    process.exit(0);
+
+  });
+
+}
+
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
+process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
+
+process.on("uncaughtException", (err) => {
+
+  console.error("Uncaught Exception:", err.message);
+
+  gracefulShutdown("uncaughtException");
+
+});
+
+process.on("unhandledRejection", (reason) => {
+
+  console.error("Unhandled Rejection:", reason);
+
+  gracefulShutdown("unhandledRejection");
+
 });
