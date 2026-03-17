@@ -1,5 +1,4 @@
 const userService = require('../services/user.service');
-const { count } = require('../state/request-counter');
 
 const getUsers = async (request, reply) => {
   const { increment } = require('../state/request-counter');
@@ -15,14 +14,18 @@ const getUserById = async (request, reply) => {
 
   const userRepository = require('../repositories/user.repository');
   const { id } = request.params;
+
   const user = await userRepository.findById(id);
+
   if (!user) {
     return reply.status(404).send({ error: 'User not found' });
   }
+
   return { user };
 };
 
-exports = {
+// 🔥 ГОЛОВНИЙ ФІКС
+module.exports = {
   getUsers,
   getUserById
 };

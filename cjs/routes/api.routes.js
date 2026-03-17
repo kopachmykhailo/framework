@@ -1,4 +1,4 @@
-const userController = require('controllers/user.controller');
+const { getUsers, getUserById } = require('../controllers/user.controller');
 const { getStats } = require('../state/request-counter');
 
 const getUserByIdSchema = {
@@ -14,8 +14,9 @@ const getUserByIdSchema = {
 };
 
 async function apiRoutes(fastify, options) {
-  fastify.get('/users',     userController.getUsers);
-  fastify.get('/users/:id', getUserByIdSchema, userController.getUserById);
+  // ✅ правильно використовуємо функції
+  fastify.get('/users', getUsers);
+  fastify.get('/users/:id', getUserByIdSchema, getUserById);
 
   fastify.get('/stats', async () => getStats());
 }

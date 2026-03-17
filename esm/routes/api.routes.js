@@ -1,4 +1,4 @@
-import userController from '../controllers/user.controller.js';
+import * as userController from '../controllers/user.controller.js';
 import { getStats } from '../state/request-counter.js';
 
 const getUserByIdSchema = {
