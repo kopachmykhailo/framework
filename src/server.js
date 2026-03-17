@@ -1,6 +1,6 @@
-const http = require('http');
-const config = require('#config/config');
-const log = require('#utils/logger');
+import http from 'http';
+import config from '#config/config';
+import log from '#utils/logger';
 
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/health') {
@@ -9,7 +9,7 @@ const server = http.createServer((req, res) => {
       nodeVersion: process.version,
       platform: process.platform,
       uptime: process.uptime(),
-      memoryUsage: process.memoryUsage()
+      memoryUsage: process.memoryUsage(),
     };
 
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -55,7 +55,6 @@ function gracefulShutdown(signal) {
   });
 }
 
-// signals
 process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 
