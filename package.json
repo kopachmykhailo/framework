@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Lab 3 CommonJS project",
   "main": "src/server.js",
-  "type": "module",
   "engines": {
     "node": ">=18"
   },

@@ -23,4 +23,4 @@ const config = {
   NODE_ENV,
 };
 
-export default config;
+module.exports = config;

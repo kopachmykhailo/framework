@@ -1,6 +1,6 @@
-import http from 'http';
-import config from '#config/config';
-import log from '#utils/logger';
+const http = require('http');
+const config = require('./config/config');
+const log = require('./utils/logger');
 
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/health') {
