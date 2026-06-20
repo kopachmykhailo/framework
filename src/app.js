@@ -4,9 +4,17 @@ import fastifyEnv from '@fastify/env';
 import fastifyCors from '@fastify/cors';
 import fastifyHelmet from '@fastify/helmet';
 import fastifySensible from '@fastify/sensible';
+import fastifyMultipart from '@fastify/multipart';
+import fastifyStatic from '@fastify/static';
+
+import path from 'path';
 
 import { envSchema } from './schemas/env.schema.js';
+
 import healthRoutes from './routes/health.route.js';
+import itemsRoutes from './routes/items.route.js';
+
+import { createBackup } from './backup.js';
 
 export async function buildApp() {
   const fastify = Fastify({
@@ -14,7 +22,9 @@ export async function buildApp() {
       level: process.env.NODE_ENV === 'production' ? 'error' : 'info',
       transport:
         process.env.NODE_ENV !== 'production'
-          ? { target: 'pino-pretty' }
+          ? {
+              target: 'pino-pretty',
+            }
           : undefined,
     },
   });
@@ -24,6 +34,9 @@ export async function buildApp() {
     schema: envSchema,
     dotenv: true,
   });
+
+  // BACKUP
+  await createBackup();
 
   // CORS
   await fastify.register(fastifyCors, {
@@ -39,6 +52,19 @@ export async function buildApp() {
 
   // SENSIBLE
   await fastify.register(fastifySensible);
+
+  // MULTIPART
+  await fastify.register(fastifyMultipart, {
+    limits: {
+      fileSize: 5 * 1024 * 1024,
+    },
+  });
+
+  // STATIC FILES
+  await fastify.register(fastifyStatic, {
+    root: path.join(process.cwd(), 'uploads'),
+    prefix: '/uploads/',
+  });
 
   // ERROR HANDLER
   fastify.setErrorHandler((error, request, reply) => {
@@ -58,6 +84,7 @@ export async function buildApp() {
 
   // ROUTES
   await fastify.register(healthRoutes);
+  await fastify.register(itemsRoutes);
 
   return fastify;
 }
