@@ -1,0 +1,19 @@
+{
+  "genres": [
+    {
+      "id": 1,
+      "name": "Fiction",
+      "ageRating": 12
+    },
+    {
+      "id": 2,
+      "name": "Programming",
+      "ageRating": 0
+    },
+    {
+      "id": 3,
+      "name": "Science",
+      "ageRating": 10
+    }
+  ]
+}

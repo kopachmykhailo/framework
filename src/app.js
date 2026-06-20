@@ -7,12 +7,17 @@ import fastifySensible from '@fastify/sensible';
 import fastifyMultipart from '@fastify/multipart';
 import fastifyStatic from '@fastify/static';
 
+import fastifySwagger from '@fastify/swagger';
+import fastifySwaggerUi from '@fastify/swagger-ui';
+import fastifyRateLimit from '@fastify/rate-limit';
+
 import path from 'path';
 
 import { envSchema } from './schemas/env.schema.js';
 
 import healthRoutes from './routes/health.route.js';
 import itemsRoutes from './routes/items.route.js';
+import githubRoutes from './routes/github.route.js';
 
 import { createBackup } from './backup.js';
 
@@ -37,6 +42,27 @@ export async function buildApp() {
 
   // BACKUP
   await createBackup();
+
+  // RATE LIMIT
+  await fastify.register(fastifyRateLimit, {
+    max: 100,
+    timeWindow: '1 minute',
+  });
+
+  // SWAGGER
+  await fastify.register(fastifySwagger, {
+    openapi: {
+      info: {
+        title: 'Books API',
+        description: 'Lab 6 REST API',
+        version: '1.0.0',
+      },
+    },
+  });
+
+  await fastify.register(fastifySwaggerUi, {
+    routePrefix: '/docs',
+  });
 
   // CORS
   await fastify.register(fastifyCors, {
@@ -82,9 +108,28 @@ export async function buildApp() {
     });
   });
 
-  // ROUTES
-  await fastify.register(healthRoutes);
-  await fastify.register(itemsRoutes);
+  // API V1
+  await fastify.register(healthRoutes, {
+    prefix: '/api/v1',
+  });
+
+  await fastify.register(itemsRoutes, {
+    prefix: '/api/v1',
+  });
+
+  // API V2
+  await fastify.register(itemsRoutes, {
+    prefix: '/api/v2',
+  });
+
+  // GITHUB
+  await fastify.register(githubRoutes, {
+    prefix: '/api/v1/github',
+  });
+
+  await fastify.register(githubRoutes, {
+    prefix: '/api/v2/github',
+  });
 
   return fastify;
 }
