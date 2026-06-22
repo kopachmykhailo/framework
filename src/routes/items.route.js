@@ -3,6 +3,9 @@ import path from 'path';
 
 import { stringify } from 'csv/sync';
 
+import { Readable, Transform } from 'stream';
+import { pipeline } from 'stream/promises';
+
 import {
   findAll,
   findById,
@@ -13,12 +16,15 @@ import {
 
 import { fetchGenres } from '../services/external.service.js';
 
+import { BooksTransform } from '../transforms/BooksTransform.js';
+import { NdjsonTransform } from '../transforms/NdjsonTransform.js';
+import { eventBus } from '../events/eventBus.js';
+
 export default async function (fastify) {
   // GET ALL ITEMS
   fastify.get('/items', async (request) => {
     const items = await findAll();
 
-    // API V2 PAGINATION
     if (request.routerPath?.includes('/items')) {
       const url = request.raw.url;
 
@@ -90,6 +96,8 @@ export default async function (fastify) {
   fastify.post('/items', async (request, reply) => {
     const item = await create(request.body);
 
+    eventBus.emit('created', item);
+
     return reply.code(201).send(item);
   });
 
@@ -97,6 +105,8 @@ export default async function (fastify) {
   fastify.put('/items/:id', async (request, reply) => {
     try {
       const item = await update(request.params.id, request.body);
+
+      eventBus.emit('updated', item);
 
       return item;
     } catch {
@@ -110,6 +120,8 @@ export default async function (fastify) {
   fastify.delete('/items/:id', async (request, reply) => {
     try {
       await remove(request.params.id);
+
+      eventBus.emit('deleted', request.params.id);
 
       return reply.code(200).send({
         success: true,
@@ -125,7 +137,30 @@ export default async function (fastify) {
   fastify.get('/items/export', async (request, reply) => {
     const items = await findAll();
 
-    const csv = stringify(items, {
+    const transformEnabled = request.query.transform === 'true';
+
+    let result = items;
+
+    if (transformEnabled) {
+      const transformedItems = [];
+
+      const source = Readable.from(items);
+
+      const collector = new Transform({
+        objectMode: true,
+
+        transform(chunk, enc, callback) {
+          transformedItems.push(chunk);
+          callback();
+        },
+      });
+
+      await pipeline(source, new BooksTransform(), collector);
+
+      result = transformedItems;
+    }
+
+    const csv = stringify(result, {
       header: true,
     });
 
@@ -134,6 +169,17 @@ export default async function (fastify) {
     reply.type('text/csv');
 
     return csv;
+  });
+
+  // STREAM ITEMS
+  fastify.get('/items/stream', async (request, reply) => {
+    const items = await findAll();
+
+    reply.type('application/x-ndjson');
+
+    const stream = Readable.from(items).pipe(new NdjsonTransform());
+
+    return reply.send(stream);
   });
 
   // IMPORT JSON

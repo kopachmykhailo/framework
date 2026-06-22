@@ -6,6 +6,7 @@ import fastifyHelmet from '@fastify/helmet';
 import fastifySensible from '@fastify/sensible';
 import fastifyMultipart from '@fastify/multipart';
 import fastifyStatic from '@fastify/static';
+import fastifyWebsocket from '@fastify/websocket';
 
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
@@ -18,6 +19,8 @@ import { envSchema } from './schemas/env.schema.js';
 import healthRoutes from './routes/health.route.js';
 import itemsRoutes from './routes/items.route.js';
 import githubRoutes from './routes/github.route.js';
+import wsRoutes from './routes/ws.route.js';
+import backupRoutes from './routes/backup.routes.js';
 
 import { createBackup } from './backup.js';
 
@@ -27,34 +30,39 @@ export async function buildApp() {
       level: process.env.NODE_ENV === 'production' ? 'error' : 'info',
       transport:
         process.env.NODE_ENV !== 'production'
-          ? {
-              target: 'pino-pretty',
-            }
+          ? { target: 'pino-pretty' }
           : undefined,
     },
   });
 
-  // ENV
+  // ENV CONFIG
   await fastify.register(fastifyEnv, {
     schema: envSchema,
-    dotenv: true,
+    dotenv: {
+      path: '.env',
+    },
   });
 
-  // BACKUP
-  await createBackup();
+  await fastify.after();
 
-  // RATE LIMIT
+  // WebSocket
+  await fastify.register(fastifyWebsocket);
+
+  // Backup on startup
+  await createBackup(fastify);
+
+  // Rate limit
   await fastify.register(fastifyRateLimit, {
     max: 100,
     timeWindow: '1 minute',
   });
 
-  // SWAGGER
+  // Swagger
   await fastify.register(fastifySwagger, {
     openapi: {
       info: {
         title: 'Books API',
-        description: 'Lab 6 REST API',
+        description: 'Lab 7 REST API',
         version: '1.0.0',
       },
     },
@@ -67,68 +75,52 @@ export async function buildApp() {
   // CORS
   await fastify.register(fastifyCors, {
     origin:
-      fastify.config.NODE_ENV === 'production' ? 'https://example.com' : true,
+      process.env.NODE_ENV === 'production' ? 'https://example.com' : true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
   });
 
-  // HELMET
+  // Security
   await fastify.register(fastifyHelmet, {
     global: true,
   });
 
-  // SENSIBLE
   await fastify.register(fastifySensible);
 
-  // MULTIPART
+  // Multipart
   await fastify.register(fastifyMultipart, {
     limits: {
       fileSize: 5 * 1024 * 1024,
     },
   });
 
-  // STATIC FILES
+  // Static files
   await fastify.register(fastifyStatic, {
     root: path.join(process.cwd(), 'uploads'),
     prefix: '/uploads/',
   });
 
-  // ERROR HANDLER
+  // Error handler
   fastify.setErrorHandler((error, request, reply) => {
-    fastify.log.error({
-      err: error,
-      method: request.method,
-      url: request.url,
-    });
+    fastify.log.error(error);
 
     reply.status(error.statusCode || 500).send({
       success: false,
-      statusCode: error.statusCode || 500,
       error: error.name,
       message: error.message,
     });
   });
 
-  // API V1
-  await fastify.register(healthRoutes, {
+  // Routes
+  await fastify.register(healthRoutes, { prefix: '/api/v1' });
+  await fastify.register(itemsRoutes, { prefix: '/api/v1' });
+
+  await fastify.register(githubRoutes, { prefix: '/api/v1/github' });
+  await fastify.register(githubRoutes, { prefix: '/api/v2/github' });
+
+  await fastify.register(wsRoutes);
+
+  await fastify.register(backupRoutes, {
     prefix: '/api/v1',
-  });
-
-  await fastify.register(itemsRoutes, {
-    prefix: '/api/v1',
-  });
-
-  // API V2
-  await fastify.register(itemsRoutes, {
-    prefix: '/api/v2',
-  });
-
-  // GITHUB
-  await fastify.register(githubRoutes, {
-    prefix: '/api/v1/github',
-  });
-
-  await fastify.register(githubRoutes, {
-    prefix: '/api/v2/github',
   });
 
   return fastify;
