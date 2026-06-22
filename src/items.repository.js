@@ -1,60 +1,72 @@
-import fs from 'fs/promises';
-import path from 'path';
+import mongoose from 'mongoose';
+import { BookModel } from './db/models/book.model.js';
 
-import itemModel from './models/item.model.js';
-import { writeAtomic } from './writeAtomic.js';
+function normalizeBook(book) {
+  if (!book) return null;
 
-const DATA_DIR = path.join(process.cwd(), 'data', 'items');
-
-const getFilePath = (id) => path.join(DATA_DIR, `${id}.json`);
-
-export const findAll = async () => {
-  const files = await fs.readdir(DATA_DIR);
-
-  const items = [];
-
-  for (const file of files) {
-    const content = await fs.readFile(path.join(DATA_DIR, file), 'utf8');
-
-    items.push(JSON.parse(content));
-  }
-
-  return items;
-};
-
-export const findById = async (id) => {
-  const content = await fs.readFile(getFilePath(id), 'utf8');
-
-  return JSON.parse(content);
-};
-
-export const create = async (data) => {
-  const id = Date.now().toString();
-
-  const item = {
-    ...itemModel,
-    ...data,
-    id,
+  return {
+    id: book._id.toString(),
+    title: book.title,
+    author: book.author,
+    year: book.year,
+    genre: book.genre,
+    image: book.image ?? null,
   };
+}
 
-  await writeAtomic(getFilePath(id), item);
+export function createItemsRepository() {
+  return {
+    async findAll() {
+      const books = await BookModel.find().lean();
+      return books.map(normalizeBook);
+    },
 
-  return item;
-};
+    async findById(id) {
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return null;
+      }
 
-export const update = async (id, body) => {
-  const current = await findById(id);
+      const book = await BookModel.findById(id).lean();
+      return normalizeBook(book);
+    },
 
-  const updated = {
-    ...current,
-    ...body,
+    async create(data) {
+      const created = await BookModel.create({
+        title: data.title,
+        author: data.author,
+        year: data.year,
+        genre: data.genre,
+        image: data.image ?? null,
+      });
+
+      return normalizeBook(created.toObject());
+    },
+
+    async update(id, body) {
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return null;
+      }
+
+      const updated = await BookModel.findByIdAndUpdate(
+        id,
+        { $set: body },
+        {
+          new: true,
+          runValidators: true,
+          lean: true,
+        },
+      );
+
+      return normalizeBook(updated);
+    },
+
+    async remove(id) {
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return null;
+      }
+
+      const deleted = await BookModel.findByIdAndDelete(id).lean();
+      return normalizeBook(deleted);
+    },
   };
-
-  await writeAtomic(getFilePath(id), updated);
-
-  return updated;
-};
-
-export const remove = async (id) => {
-  await fs.unlink(getFilePath(id));
-};
+}

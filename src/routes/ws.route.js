@@ -1,58 +1,58 @@
+import { createItemsRepository } from '../items.repository.js';
 import { eventBus } from '../events/eventBus.js';
-import { findAll } from '../items.repository.js';
 
 export default async function (fastify) {
-  fastify.get(
-    '/ws',
-    {
-      websocket: true,
-    },
-    async (socket) => {
-      const items = await findAll();
+  fastify.get('/ws', { websocket: true }, async (connection) => {
+    const itemsRepository = createItemsRepository(fastify.db);
 
-      socket.send(
+    const sendItems = async () => {
+      const items = await itemsRepository.findAll();
+
+      connection.send(
         JSON.stringify({
-          event: 'initial',
-          data: items,
+          type: 'items',
+          payload: items,
         }),
       );
+    };
 
-      const createdHandler = (item) => {
-        socket.send(
-          JSON.stringify({
-            event: 'created',
-            data: item,
-          }),
-        );
-      };
+    await sendItems();
 
-      const updatedHandler = (item) => {
-        socket.send(
-          JSON.stringify({
-            event: 'updated',
-            data: item,
-          }),
-        );
-      };
+    const onCreated = async (item) => {
+      connection.send(
+        JSON.stringify({
+          type: 'created',
+          payload: item,
+        }),
+      );
+    };
 
-      const deletedHandler = (id) => {
-        socket.send(
-          JSON.stringify({
-            event: 'deleted',
-            id,
-          }),
-        );
-      };
+    const onUpdated = async (item) => {
+      connection.send(
+        JSON.stringify({
+          type: 'updated',
+          payload: item,
+        }),
+      );
+    };
 
-      eventBus.on('created', createdHandler);
-      eventBus.on('updated', updatedHandler);
-      eventBus.on('deleted', deletedHandler);
+    const onDeleted = async (id) => {
+      connection.send(
+        JSON.stringify({
+          type: 'deleted',
+          payload: id,
+        }),
+      );
+    };
 
-      socket.on('close', () => {
-        eventBus.off('created', createdHandler);
-        eventBus.off('updated', updatedHandler);
-        eventBus.off('deleted', deletedHandler);
-      });
-    },
-  );
+    eventBus.on('created', onCreated);
+    eventBus.on('updated', onUpdated);
+    eventBus.on('deleted', onDeleted);
+
+    connection.socket.on('close', () => {
+      eventBus.off('created', onCreated);
+      eventBus.off('updated', onUpdated);
+      eventBus.off('deleted', onDeleted);
+    });
+  });
 }

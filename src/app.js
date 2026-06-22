@@ -23,6 +23,7 @@ import wsRoutes from './routes/ws.route.js';
 import backupRoutes from './routes/backup.routes.js';
 
 import { createBackup } from './backup.js';
+import mongoPlugin from './db/mongo.js';
 
 export async function buildApp() {
   const fastify = Fastify({
@@ -45,6 +46,9 @@ export async function buildApp() {
 
   await fastify.after();
 
+  // MongoDB plugin
+  await fastify.register(mongoPlugin);
+
   // WebSocket
   await fastify.register(fastifyWebsocket);
 
@@ -62,7 +66,7 @@ export async function buildApp() {
     openapi: {
       info: {
         title: 'Books API',
-        description: 'Lab 7 REST API',
+        description: 'Lab 8 REST API (MongoDB)',
         version: '1.0.0',
       },
     },

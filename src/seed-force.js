@@ -30,13 +30,9 @@ const dbName = process.env.MONGO_DB_NAME;
 
 await mongoose.connect(`${mongoUrl}/${dbName}`);
 
-const count = await BookModel.countDocuments();
+await BookModel.deleteMany({});
+await BookModel.insertMany(books);
 
-if (count === 0) {
-  await BookModel.insertMany(books);
-  console.log('Seed complete');
-} else {
-  console.log('Database is not empty. Seed skipped.');
-}
+console.log('Force seed complete');
 
 await mongoose.connection.close();
