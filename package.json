@@ -1,7 +1,7 @@
 {
   "name": "lab-6-books",
   "version": "1.0.0",
-  "description": "Lab 6",
+  "description": "Lab 6 (Drizzle migration)",
   "main": "src/server.js",
   "type": "module",
   "engines": {
@@ -10,7 +10,6 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --env-file=.env --watch src/server.js",
-    "external": "json-server db.json --port 3001",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
@@ -19,7 +18,9 @@
     "predev": "npm run check",
     "seed": "node --env-file=.env src/seed.js",
     "seed:force": "node --env-file=.env src/seed-force.js",
-    "migrate": "node src/migrate.js"
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
     "@fastify/cors": "^11.2.0",
@@ -33,12 +34,15 @@
     "@fastify/swagger-ui": "^5.2.3",
     "@fastify/websocket": "^11.2.0",
     "csv": "^6.6.0",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
     "fastify": "^5.8.5",
     "fastify-plugin": "^6.0.0",
     "mysql2": "^3.22.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.6",

@@ -1,42 +1,55 @@
+import { eq } from 'drizzle-orm';
+import { books } from './db/schema.js';
+
 export function createItemsRepository(db) {
   return {
+    // GET ALL
     async findAll() {
-      const [rows] = await db.query(`
-        SELECT id, title, author, year, genre, image
-        FROM books
-        ORDER BY id ASC
-      `);
-
-      return rows;
+      return await db
+        .select({
+          id: books.id,
+          title: books.title,
+          author: books.author,
+          year: books.year,
+          genre: books.genre,
+          image: books.image,
+        })
+        .from(books)
+        .orderBy(books.id);
     },
 
+    // GET BY ID
     async findById(id) {
-      const [rows] = await db.query(
-        `
-          SELECT id, title, author, year, genre, image
-          FROM books
-          WHERE id = ?
-          LIMIT 1
-        `,
-        [id],
-      );
+      const rows = await db
+        .select({
+          id: books.id,
+          title: books.title,
+          author: books.author,
+          year: books.year,
+          genre: books.genre,
+          image: books.image,
+        })
+        .from(books)
+        .where(eq(books.id, id))
+        .limit(1);
 
       return rows[0] ?? null;
     },
 
+    // CREATE
     async create(data) {
       const { title, author, year, genre, image = null } = data;
 
-      const [result] = await db.query(
-        `
-          INSERT INTO books (title, author, year, genre, image)
-          VALUES (?, ?, ?, ?, ?)
-        `,
-        [title, author, year, genre, image],
-      );
+      const result = await db.insert(books).values({
+        title,
+        author,
+        year,
+        genre,
+        image,
+      });
 
       return {
-        id: result.insertId,
+        id: result[0]?.insertId ?? null,
         title,
         author,
         year,
@@ -45,12 +58,11 @@ export function createItemsRepository(db) {
       };
     },
 
+    // UPDATE
     async update(id, body) {
       const existing = await this.findById(id);
 
-      if (!existing) {
-        return null;
-      }
+      if (!existing) return null;
 
       const updated = {
         title: body.title ?? existing.title,
@@ -62,21 +74,7 @@ export function createItemsRepository(db) {
           : existing.image,
       };
 
-      await db.query(
-        `
-          UPDATE books
-          SET title = ?, author = ?, year = ?, genre = ?, image = ?
-          WHERE id = ?
-        `,
-        [
-          updated.title,
-          updated.author,
-          updated.year,
-          updated.genre,
-          updated.image,
-          id,
-        ],
-      );
+      await db.update(books).set(updated).where(eq(books.id, id));
 
       return {
         id: Number(id),
@@ -84,20 +82,13 @@ export function createItemsRepository(db) {
       };
     },
 
+    // DELETE
     async remove(id) {
       const existing = await this.findById(id);
 
-      if (!existing) {
-        return null;
-      }
+      if (!existing) return null;
 
-      await db.query(
-        `
-          DELETE FROM books
-          WHERE id = ?
-        `,
-        [id],
-      );
+      await db.delete(books).where(eq(books.id, id));
 
       return existing;
     },

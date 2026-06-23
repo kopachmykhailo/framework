@@ -1,54 +1,14 @@
-import mysql from 'mysql2/promise';
+import { items } from './db/schema.js';
 
-const books = [
-  {
-    title: 'Clean Code',
-    author: 'Robert Martin',
-    year: 2008,
-    genre: 'Programming',
-    image: null,
-  },
-  {
-    title: 'JavaScript: The Definitive Guide',
-    author: 'David Flanagan',
-    year: 2020,
-    genre: 'Programming',
-    image: null,
-  },
-  {
-    title: 'The Hobbit',
-    author: 'J.R.R. Tolkien',
-    year: 1937,
-    genre: 'Fantasy',
-    image: null,
-  },
-];
-
-const db = await mysql.createConnection({
-  host: process.env.MYSQL_HOST,
-  port: Number(process.env.MYSQL_PORT),
-  user: process.env.MYSQL_USER,
-  password: process.env.MYSQL_PASSWORD,
-  database: process.env.MYSQL_DB,
-});
-
-const [rows] = await db.query('SELECT COUNT(*) AS count FROM books');
-const count = rows[0].count;
-
-if (count === 0) {
-  for (const book of books) {
-    await db.query(
-      `
-        INSERT INTO books (title, author, year, genre, image)
-        VALUES (?, ?, ?, ?, ?)
-      `,
-      [book.title, book.author, book.year, book.genre, book.image],
-    );
-  }
-
-  console.log('Seed complete');
-} else {
-  console.log('Database is not empty. Seed skipped.');
+export async function seed(fastify) {
+  await fastify.db.insert(items).values([
+    {
+      name: 'Item 1',
+      description: 'Seed data 1',
+    },
+    {
+      name: 'Item 2',
+      description: 'Seed data 2',
+    },
+  ]);
 }
-
-await db.end();

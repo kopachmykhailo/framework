@@ -3,7 +3,7 @@ import { buildApp } from './app.js';
 const start = async () => {
   const fastify = await buildApp();
 
-  await fastify.ready(); // 👈 ВАЖЛИВО
+  await fastify.ready();
 
   await fastify.listen({
     port: fastify.config.PORT,
