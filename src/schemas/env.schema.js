@@ -13,6 +13,8 @@ export const envSchema = {
 
     'REDIS_HOST',
     'REDIS_PORT',
+
+    'SESSION_SECRET',
   ],
   properties: {
     PORT: { type: 'string' },
@@ -27,5 +29,7 @@ export const envSchema = {
 
     REDIS_HOST: { type: 'string' },
     REDIS_PORT: { type: 'string' },
+
+    SESSION_SECRET: { type: 'string', minLength: 32 },
   },
 };

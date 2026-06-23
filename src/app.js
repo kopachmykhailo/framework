@@ -21,14 +21,15 @@ import itemsRoutes from './routes/items.route.js';
 import githubRoutes from './routes/github.route.js';
 import wsRoutes from './routes/ws.route.js';
 import backupRoutes from './routes/backup.routes.js';
+import authRoutes from './routes/auth.routes.js';
 
-// backup
 import { createBackup } from './backup.js';
 
 // plugins
 import dbPlugin from './db/index.js';
 import redisPlugin from './plugins/redis.js';
 import rateLimitPlugin from './plugins/rateLimit.js';
+import sessionPlugin from './plugins/session.js';
 
 export async function buildApp() {
   const fastify = Fastify({
@@ -39,20 +40,21 @@ export async function buildApp() {
 
   await fastify.register(fastifyEnv, {
     schema: envSchema,
-    dotenv: {
-      path: '.env',
-    },
+    dotenv: { path: '.env' },
   });
 
   await fastify.after();
 
-  // DB first
+  // DB
   await fastify.register(dbPlugin);
 
-  // Redis second (важливо для rate-limit і cache)
+  // Redis
   await fastify.register(redisPlugin);
 
-  // Rate limit (використовує Redis)
+  // Session
+  await fastify.register(sessionPlugin);
+
+  // Rate limit
   await fastify.register(rateLimitPlugin);
 
   await fastify.register(fastifyWebsocket);
@@ -75,18 +77,14 @@ export async function buildApp() {
   await fastify.register(fastifyCors, {
     origin: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    credentials: true,
   });
 
-  await fastify.register(fastifyHelmet, {
-    global: true,
-  });
-
+  await fastify.register(fastifyHelmet, { global: true });
   await fastify.register(fastifySensible);
 
   await fastify.register(fastifyMultipart, {
-    limits: {
-      fileSize: 5 * 1024 * 1024,
-    },
+    limits: { fileSize: 5 * 1024 * 1024 },
   });
 
   await fastify.register(fastifyStatic, {
@@ -104,8 +102,11 @@ export async function buildApp() {
     });
   });
 
+  // ROUTES
   await fastify.register(healthRoutes, { prefix: '/api/v1' });
   await fastify.register(itemsRoutes, { prefix: '/api/v2' });
+
+  await fastify.register(authRoutes, { prefix: '/api/v1' });
 
   await fastify.register(githubRoutes, { prefix: '/api/v1/github' });
   await fastify.register(githubRoutes, { prefix: '/api/v2/github' });
