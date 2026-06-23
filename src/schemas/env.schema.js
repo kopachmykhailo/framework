@@ -4,43 +4,28 @@ export const envSchema = {
     'PORT',
     'HOSTNAME',
     'NODE_ENV',
-    'ADMIN_API_KEY',
-    'MYSQL_HOST',
-    'MYSQL_PORT',
-    'MYSQL_USER',
-    'MYSQL_PASSWORD',
-    'MYSQL_DB',
+
+    'DB_HOST',
+    'DB_PORT',
+    'DB_USER',
+    'DB_PASSWORD',
+    'DB_NAME',
+
+    'REDIS_HOST',
+    'REDIS_PORT',
   ],
   properties: {
-    PORT: {
-      type: 'number',
-      default: 3000,
-    },
-    HOSTNAME: {
-      type: 'string',
-      default: 'localhost',
-    },
-    NODE_ENV: {
-      type: 'string',
-      default: 'development',
-    },
-    ADMIN_API_KEY: {
-      type: 'string',
-    },
-    MYSQL_HOST: {
-      type: 'string',
-    },
-    MYSQL_PORT: {
-      type: 'number',
-    },
-    MYSQL_USER: {
-      type: 'string',
-    },
-    MYSQL_PASSWORD: {
-      type: 'string',
-    },
-    MYSQL_DB: {
-      type: 'string',
-    },
+    PORT: { type: 'string' },
+    HOSTNAME: { type: 'string' },
+    NODE_ENV: { type: 'string' },
+
+    DB_HOST: { type: 'string' },
+    DB_PORT: { type: 'string' },
+    DB_USER: { type: 'string' },
+    DB_PASSWORD: { type: 'string' },
+    DB_NAME: { type: 'string' },
+
+    REDIS_HOST: { type: 'string' },
+    REDIS_PORT: { type: 'string' },
   },
 };

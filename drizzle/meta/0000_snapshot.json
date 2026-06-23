@@ -34,9 +34,7 @@
       "compositePrimaryKeys": {
         "items_id": {
           "name": "items_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {},
