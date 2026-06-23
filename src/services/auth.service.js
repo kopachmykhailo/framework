@@ -1,8 +1,8 @@
-import argon2 from 'argon2';
+import * as argon2 from 'argon2';
 import { eq } from 'drizzle-orm';
 import { users } from '../db/schema.js';
 
-export function createAuthService({ db, jwt, redis }) {
+export function createAuthService({ db, jwt, redis, hashLib = argon2 }) {
   return {
     // REGISTER
     async register({ email, password }) {
@@ -15,7 +15,7 @@ export function createAuthService({ db, jwt, redis }) {
         throw new Error('User already exists');
       }
 
-      const hash = await argon2.hash(password);
+      const hash = await hashLib.hash(password);
 
       const result = await db.insert(users).values({
         email,
@@ -38,7 +38,7 @@ export function createAuthService({ db, jwt, redis }) {
 
       if (!user) return null;
 
-      const ok = await argon2.verify(user.password, password);
+      const ok = await hashLib.verify(user.password, password);
       if (!ok) return null;
 
       const accessToken = jwt.sign(

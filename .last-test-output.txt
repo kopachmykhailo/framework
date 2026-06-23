@@ -1,0 +1,542 @@
+﻿
+> lab-6-books@1.0.0 test
+> vitest run
+
+
+[7m[1m[36m RUN [39m[22m[27m [36mv1.0.4[39m [90mD:/╨▓╤Б╨╡/teaching/3 year/2 semester/╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║/lab1[39m
+
+{"level":40,"time":1782251317844,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317848,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317860,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317861,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317870,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317884,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317896,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317913,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251317928,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251317937,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-1","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251317947,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-1","req":{"method":"GET","url":"/api/v1/health","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251317974,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-1","req":{"method":"GET","url":"/api/v2/items?page=1&limit=10","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251317977,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251317973,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-1","res":{"statusCode":200},"responseTime":24.98149999976158,"msg":"request completed"}
+{"level":40,"time":1782251318016,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251317997,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-1","res":{"statusCode":200},"responseTime":22.819399997591972,"msg":"request completed"}
+{"level":30,"time":1782251318046,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-2","req":{"method":"GET","url":"/api/v1/health","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251318053,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318054,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318058,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318074,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-2","req":{"method":"GET","url":"/api/v2/items?page=1&limit=10","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318048,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-2","res":{"statusCode":200},"responseTime":1.6990000009536743,"msg":"request completed"}
+{"level":40,"time":1782251318083,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318075,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-2","res":{"statusCode":200},"responseTime":1.2415999993681908,"msg":"request completed"}
+{"level":40,"time":1782251318102,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318103,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318107,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-3","req":{"method":"GET","url":"/api/v1/health","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251318110,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318108,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-3","res":{"statusCode":200},"responseTime":0.6939999982714653,"msg":"request completed"}
+{"level":30,"time":1782251318111,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-1","res":{"statusCode":201},"responseTime":173.40550000220537,"msg":"request completed"}
+ [33mтЭп[39m test/routes/health.routes.test.js [2m ([22m[2m3 tests[22m [2m|[22m [31m1 failed[39m[2m)[22m[33m 528[2mms[22m[39m
+[31m   [33mтЭп[31m test/routes/health.routes.test.js[2m > [22mHealth Routes Integration[2m > [22mGET /api/v1/health[2m > [22mshould return health check object[39m
+[31m     тЖТ expected { status: 'ok' } to have property "timestamp"[39m
+{"level":30,"time":1782251318123,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-3","req":{"method":"GET","url":"/api/v2/items?page=2&limit=5","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318124,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-3","res":{"statusCode":200},"responseTime":0.8399000018835068,"msg":"request completed"}
+{"level":40,"time":1782251318138,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318146,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318148,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318166,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-2","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318170,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-4","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251318182,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318174,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-4","res":{"statusCode":201},"responseTime":4.434500001370907,"msg":"request completed"}
+{"level":40,"time":1782251318212,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318225,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318242,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-5","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318247,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-5","res":{"statusCode":201},"responseTime":4.378499999642372,"msg":"request completed"}
+{"level":40,"time":1782251318272,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318273,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318287,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-6","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318294,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-2","res":{"statusCode":201},"responseTime":127.5494000017643,"msg":"request completed"}
+{"level":30,"time":1782251318290,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-6","res":{"statusCode":201},"responseTime":2.6061000004410744,"msg":"request completed"}
+{"level":30,"time":1782251318291,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-7","req":{"method":"GET","url":"/api/v2/items/3","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318293,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-7","res":{"statusCode":200},"responseTime":1.5443999990820885,"msg":"request completed"}
+{"level":40,"time":1782251318300,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318301,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318308,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318324,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318328,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-8","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+ [32mтЬУ[39m test/services/items.service.test.js [2m ([22m[2m10 tests[22m[2m)[22m[33m 736[2mms[22m[39m
+{"level":30,"time":1782251318338,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-3","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251318340,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318329,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-8","res":{"statusCode":201},"responseTime":0.9777000024914742,"msg":"request completed"}
+{"level":30,"time":1782251318331,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-9","req":{"method":"GET","url":"/api/v2/items/99999","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318332,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-9","res":{"statusCode":200},"responseTime":1.377199999988079,"msg":"request completed"}
+{"level":40,"time":1782251318360,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318375,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-a","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318376,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-a","res":{"statusCode":201},"responseTime":1.3312999978661537,"msg":"request completed"}
+{"level":30,"time":1782251318377,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-b","req":{"method":"PUT","url":"/api/v2/items/5","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251318378,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318378,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-b","res":{"statusCode":200},"responseTime":1.5976000055670738,"msg":"request completed"}
+{"level":40,"time":1782251318398,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318416,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-c","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318418,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-c","res":{"statusCode":201},"responseTime":1.4288000017404556,"msg":"request completed"}
+{"level":30,"time":1782251318419,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-d","req":{"method":"PUT","url":"/api/v2/items/99999","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251318423,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318434,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-3","res":{"statusCode":201},"responseTime":95.09430000185966,"msg":"request completed"}
+{"level":30,"time":1782251318421,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-d","res":{"statusCode":200},"responseTime":2.6378000006079674,"msg":"request completed"}
+{"level":40,"time":1782251318441,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318448,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318452,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318452,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-e","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318460,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-4","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318454,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-e","res":{"statusCode":201},"responseTime":1.4676000028848648,"msg":"request completed"}
+{"level":30,"time":1782251318455,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-f","req":{"method":"DELETE","url":"/api/v2/items/7","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318455,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-f","res":{"statusCode":200},"responseTime":0.5471999943256378,"msg":"request completed"}
+{"level":40,"time":1782251318473,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318482,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318487,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-g","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318488,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-g","res":{"statusCode":201},"responseTime":0.8633000031113625,"msg":"request completed"}
+{"level":30,"time":1782251318489,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-h","req":{"method":"DELETE","url":"/api/v2/items/99999","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318489,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-h","res":{"statusCode":200},"responseTime":0.6656000018119812,"msg":"request completed"}
+{"level":40,"time":1782251318505,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":40,"time":1782251318520,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318523,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-i","req":{"method":"POST","url":"/api/v2/items","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318524,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-i","res":{"statusCode":201},"responseTime":0.8528999984264374,"msg":"request completed"}
+{"level":30,"time":1782251318524,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-j","req":{"method":"DELETE","url":"/api/v2/items/9","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318525,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-j","res":{"statusCode":200},"responseTime":0.6685000061988831,"msg":"request completed"}
+{"level":30,"time":1782251318525,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-k","req":{"method":"GET","url":"/api/v2/items/9","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318526,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-k","res":{"statusCode":404},"responseTime":0.43969999998807907,"msg":"request completed"}
+ [33mтЭп[39m test/routes/items.routes.test.js [2m ([22m[2m12 tests[22m [2m|[22m [31m10 failed[39m[2m)[22m[33m 946[2mms[22m[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items[2m > [22mshould return empty list initially[39m
+[31m     тЖТ expected [] to have property "data"[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items[2m > [22mshould return paginated items with metadata[39m
+[31m     тЖТ Cannot convert undefined or null to object[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items[2m > [22mshould handle pagination with different page numbers[39m
+[31m     тЖТ Cannot read properties of undefined (reading 'page')[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPOST /api/v2/items[2m > [22mshould create a new item and return 201[39m
+[31m     тЖТ expected { id: 1, description: null } to have property "title" with value 'Test Book'[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPOST /api/v2/items[2m > [22mshould return created item with all properties[39m
+[31m     тЖТ expected undefined to be 'Another Book' // Object.is equality[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items/:id[2m > [22mshould return 200 and item details[39m
+[31m     тЖТ expected { id: 3, description: null } to have property "title" with value 'Test Item'[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items/:id[2m > [22mshould return 404 for non-existent item[39m
+[31m     тЖТ expected 200 to be 404 // Object.is equality[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPUT /api/v2/items/:id[2m > [22mshould update item and return 200[39m
+[31m     тЖТ expected { id: 5, description: null } to have property "title" with value 'Updated Title'[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPUT /api/v2/items/:id[2m > [22mshould return 404 when updating non-existent item[39m
+[31m     тЖТ expected 200 to be 404 // Object.is equality[39m
+[31m   [33mтЭп[31m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mDELETE /api/v2/items/:id[2m > [22mshould return 404 when deleting non-existent item[39m
+[31m     тЖТ expected 200 to be 404 // Object.is equality[39m
+{"level":30,"time":1782251318550,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-4","res":{"statusCode":201},"responseTime":89.67099999636412,"msg":"request completed"}
+{"level":40,"time":1782251318562,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318551,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-5","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":50,"time":1782251318553,"pid":26836,"hostname":"DESKTOP-LH76R2Q","err":{"type":"Error","message":"User already exists","stack":"Error: User already exists\n    at Object.register (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\services\\auth.service.js:15:15)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at Object.<anonymous> (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\routes\\auth.routes.js:10:18)"},"msg":"User already exists"}
+{"level":30,"time":1782251318556,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-5","res":{"statusCode":500},"responseTime":5.022799998521805,"msg":"request completed"}
+{"level":40,"time":1782251318578,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318592,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-6","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":40,"time":1782251318594,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+ [33mтЭп[39m test/services/auth.service.test.js [2m ([22m[2m12 tests[22m [2m|[22m [31m4 failed[39m[2m)[22m[33m 1022[2mms[22m[39m
+[31m   [33mтЭп[31m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mregister[2m > [22mshould hash password before storing[39m
+[31m     тЖТ expected "hash" to be called with arguments: [ 'password123' ][90m
+
+Received: 
+
+[31m[90m
+
+Number of calls: [1m0[22m
+[31m[39m
+[31m   [33mтЭп[31m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mlogin[2m > [22mshould return tokens on successful login[39m
+[31m     тЖТ pchstr must contain a $ as first char[39m
+[31m   [33mтЭп[31m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mlogin[2m > [22mshould return null if password is incorrect[39m
+[31m     тЖТ pchstr must contain a $ as first char[39m
+[31m   [33mтЭп[31m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mlogin[2m > [22mshould verify password with argon2[39m
+[31m     тЖТ pchstr must contain a $ as first char[39m
+{"level":30,"time":1782251318673,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-6","res":{"statusCode":201},"responseTime":81.50090000033379,"msg":"request completed"}
+{"level":30,"time":1782251318674,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-7","req":{"method":"POST","url":"/api/v1/auth/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":50,"time":1782251318741,"pid":26836,"hostname":"DESKTOP-LH76R2Q","err":{"type":"TypeError","message":"Cannot read properties of undefined (reading 'sign')","stack":"TypeError: Cannot read properties of undefined (reading 'sign')\n    at Object.login (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\services\\auth.service.js:44:31)\n    at Object.<anonymous> (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\routes\\auth.routes.js:29:20)"},"msg":"Cannot read properties of undefined (reading 'sign')"}
+{"level":30,"time":1782251318742,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-7","res":{"statusCode":500},"responseTime":67.71030000597239,"msg":"request completed"}
+{"level":40,"time":1782251318750,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318757,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-8","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318823,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-8","res":{"statusCode":201},"responseTime":65.52859999984503,"msg":"request completed"}
+{"level":30,"time":1782251318824,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-9","req":{"method":"POST","url":"/api/v1/auth/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318892,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-9","res":{"statusCode":401},"responseTime":67.52839999645948,"msg":"request completed"}
+{"level":40,"time":1782251318900,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251318906,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-a","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251318964,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-a","res":{"statusCode":201},"responseTime":57.94250000268221,"msg":"request completed"}
+{"level":30,"time":1782251318964,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-b","req":{"method":"POST","url":"/api/v1/auth/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251319021,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-b","res":{"statusCode":401},"responseTime":56.18280000239611,"msg":"request completed"}
+{"level":40,"time":1782251319030,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251319037,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-c","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251319092,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-c","res":{"statusCode":201},"responseTime":55.856100000441074,"msg":"request completed"}
+{"level":30,"time":1782251319093,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-d","req":{"method":"POST","url":"/api/v1/auth/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":50,"time":1782251319148,"pid":26836,"hostname":"DESKTOP-LH76R2Q","err":{"type":"TypeError","message":"Cannot read properties of undefined (reading 'sign')","stack":"TypeError: Cannot read properties of undefined (reading 'sign')\n    at Object.login (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\services\\auth.service.js:44:31)\n    at Object.<anonymous> (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\routes\\auth.routes.js:29:20)"},"msg":"Cannot read properties of undefined (reading 'sign')"}
+{"level":30,"time":1782251319148,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-d","res":{"statusCode":500},"responseTime":55.602799996733665,"msg":"request completed"}
+{"level":30,"time":1782251319149,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-e","req":{"method":"GET","url":"/api/v1/auth/me","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251319150,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-e","res":{"statusCode":401},"responseTime":1.0746000036597252,"msg":"request completed"}
+{"level":40,"time":1782251319158,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251319164,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-f","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251319224,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-f","res":{"statusCode":201},"responseTime":59.9886000007391,"msg":"request completed"}
+{"level":30,"time":1782251319225,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-g","req":{"method":"POST","url":"/api/v1/auth/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":50,"time":1782251319281,"pid":26836,"hostname":"DESKTOP-LH76R2Q","err":{"type":"TypeError","message":"Cannot read properties of undefined (reading 'sign')","stack":"TypeError: Cannot read properties of undefined (reading 'sign')\n    at Object.login (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\services\\auth.service.js:44:31)\n    at Object.<anonymous> (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\routes\\auth.routes.js:29:20)"},"msg":"Cannot read properties of undefined (reading 'sign')"}
+{"level":30,"time":1782251319282,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-g","res":{"statusCode":500},"responseTime":57.05790000408888,"msg":"request completed"}
+{"level":30,"time":1782251319282,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-h","req":{"method":"GET","url":"/api/v1/auth/me","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251319282,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-h","res":{"statusCode":401},"responseTime":0.32900000363588333,"msg":"request completed"}
+{"level":40,"time":1782251319289,"pid":26836,"hostname":"DESKTOP-LH76R2Q","msg":"\"root\" path \"D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\uploads\" must exist"}
+{"level":30,"time":1782251319296,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-i","req":{"method":"POST","url":"/api/v1/auth/register","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251319386,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-i","res":{"statusCode":201},"responseTime":90.08269999921322,"msg":"request completed"}
+{"level":30,"time":1782251319386,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-j","req":{"method":"POST","url":"/api/v1/auth/login","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":50,"time":1782251319469,"pid":26836,"hostname":"DESKTOP-LH76R2Q","err":{"type":"TypeError","message":"Cannot read properties of undefined (reading 'sign')","stack":"TypeError: Cannot read properties of undefined (reading 'sign')\n    at Object.login (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\services\\auth.service.js:44:31)\n    at Object.<anonymous> (D:\\╨▓╤Б╨╡\\teaching\\3 year\\2 semester\\╤Д╤А╨╡╨╣╨╝╨▓╨╛╤А╨║\\lab1\\src\\routes\\auth.routes.js:29:20)"},"msg":"Cannot read properties of undefined (reading 'sign')"}
+{"level":30,"time":1782251319470,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-j","res":{"statusCode":500},"responseTime":83.19750000536442,"msg":"request completed"}
+{"level":30,"time":1782251319470,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-k","req":{"method":"GET","url":"/api/v1/auth/me","host":"localhost:80","remoteAddress":"127.0.0.1"},"msg":"incoming request"}
+{"level":30,"time":1782251319470,"pid":26836,"hostname":"DESKTOP-LH76R2Q","reqId":"req-k","res":{"statusCode":401},"responseTime":0.34939999878406525,"msg":"request completed"}
+ [33mтЭп[39m test/routes/auth.routes.test.js [2m ([22m[2m10 tests[22m [2m|[22m [31m5 failed[39m[2m)[22m[33m 1908[2mms[22m[39m
+[31m   [33mтЭп[31m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/register[2m > [22mshould not register user with invalid email format[39m
+[31m     тЖТ expected 201 to be 400 // Object.is equality[39m
+[31m   [33mтЭп[31m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/register[2m > [22mshould not register user with short password[39m
+[31m     тЖТ expected 201 to be 400 // Object.is equality[39m
+[31m   [33mтЭп[31m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/register[2m > [22mshould not register duplicate user[39m
+[31m     тЖТ expected 500 to be 400 // Object.is equality[39m
+[31m   [33mтЭп[31m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/login[2m > [22mshould login user with correct credentials and return token[39m
+[31m     тЖТ expected 500 to be 200 // Object.is equality[39m
+[31m   [33mтЭп[31m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mGET /api/v1/auth/me (Protected)[2m > [22mshould return user info with valid token[39m
+[31m     тЖТ expected 401 to be 200 // Object.is equality[39m
+
+[31mтОптОптОптОптОптОп[1m[7m Failed Tests 20 [27m[22mтОптОптОптОптОптОптОп[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/register[2m > [22mshould not register user with invalid email format
+[31m[1mAssertionError[22m: expected 201 to be 400 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 400[39m
+[31m+ 201[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/auth.routes.test.js:[2m53:35[22m[39m
+    [90m 51| [39m      });
+    [90m 52| [39m
+    [90m 53| [39m      expect(response.statusCode).toBe(400);
+    [90m   | [39m                                  [31m^[39m
+    [90m 54| [39m    });
+    [90m 55| [39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[1/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/register[2m > [22mshould not register user with short password
+[31m[1mAssertionError[22m: expected 201 to be 400 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 400[39m
+[31m+ 201[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/auth.routes.test.js:[2m66:35[22m[39m
+    [90m 64| [39m      });
+    [90m 65| [39m
+    [90m 66| [39m      expect(response.statusCode).toBe(400);
+    [90m   | [39m                                  [31m^[39m
+    [90m 67| [39m    });
+    [90m 68| [39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[2/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/register[2m > [22mshould not register duplicate user
+[31m[1mAssertionError[22m: expected 500 to be 400 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 400[39m
+[31m+ 500[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/auth.routes.test.js:[2m88:35[22m[39m
+    [90m 86| [39m      });
+    [90m 87| [39m
+    [90m 88| [39m      expect(response.statusCode).toBe(400);
+    [90m   | [39m                                  [31m^[39m
+    [90m 89| [39m    });
+    [90m 90| [39m  });
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[3/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mPOST /api/v1/auth/login[2m > [22mshould login user with correct credentials and return token
+[31m[1mAssertionError[22m: expected 500 to be 200 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 200[39m
+[31m+ 500[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/auth.routes.test.js:[2m114:35[22m[39m
+    [90m112| [39m      });
+    [90m113| [39m
+    [90m114| [39m      expect(response.statusCode).toBe(200);
+    [90m   | [39m                                  [31m^[39m
+    [90m115| [39m      const body = response.json();
+    [90m116| [39m      expect(body).toHaveProperty('token');
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[4/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/auth.routes.test.js[2m > [22mAuth Routes Integration[2m > [22mGET /api/v1/auth/me (Protected)[2m > [22mshould return user info with valid token
+[31m[1mAssertionError[22m: expected 401 to be 200 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 200[39m
+[31m+ 401[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/auth.routes.test.js:[2m181:35[22m[39m
+    [90m179| [39m      });
+    [90m180| [39m
+    [90m181| [39m      expect(response.statusCode).toBe(200);
+    [90m   | [39m                                  [31m^[39m
+    [90m182| [39m      const body = response.json();
+    [90m183| [39m      expect(body).toHaveProperty('user');
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[5/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/health.routes.test.js[2m > [22mHealth Routes Integration[2m > [22mGET /api/v1/health[2m > [22mshould return health check object
+[31m[1mAssertionError[22m: expected { status: 'ok' } to have property "timestamp"[39m
+System.Management.Automation.RemoteException
+[2mCompared values have no visual difference.[22m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/health.routes.test.js:[2m34:20[22m[39m
+    [90m 32| [39m      const body = response.json();
+    [90m 33| [39m      expect(body).toHaveProperty('status');
+    [90m 34| [39m      expect(body).toHaveProperty('timestamp');
+    [90m   | [39m                   [31m^[39m
+    [90m 35| [39m    });
+    [90m 36| [39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[6/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items[2m > [22mshould return empty list initially
+[31m[1mAssertionError[22m: expected [] to have property "data"[39m
+System.Management.Automation.RemoteException
+[2mCompared values have no visual difference.[22m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m34:20[22m[39m
+    [90m 32| [39m      expect(response.statusCode).toBe(200);
+    [90m 33| [39m      const body = response.json();
+    [90m 34| [39m      expect(body).toHaveProperty('data');
+    [90m   | [39m                   [31m^[39m
+    [90m 35| [39m      expect(body).toHaveProperty('meta');
+    [90m 36| [39m      expect(body.data).toEqual([]);
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[7/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items[2m > [22mshould return paginated items with metadata
+[31m[1mTypeError[22m: Cannot convert undefined or null to object[39m
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m46:25[22m[39m
+    [90m 44| [39m
+    [90m 45| [39m      const body = response.json();
+    [90m 46| [39m      expect(body.meta).toHaveProperty('total');
+    [90m   | [39m                        [31m^[39m
+    [90m 47| [39m      expect(body.meta).toHaveProperty('page', 1);
+    [90m 48| [39m      expect(body.meta).toHaveProperty('limit', 10);
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[8/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items[2m > [22mshould handle pagination with different page numbers
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'page')[39m
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m59:24[22m[39m
+    [90m 57| [39m
+    [90m 58| [39m      const body = response.json();
+    [90m 59| [39m      expect(body.meta.page).toBe(2);
+    [90m   | [39m                       [31m^[39m
+    [90m 60| [39m      expect(body.meta.limit).toBe(5);
+    [90m 61| [39m    });
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[9/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPOST /api/v2/items[2m > [22mshould create a new item and return 201
+[31m[1mAssertionError[22m: expected { id: 1, description: null } to have property "title" with value 'Test Book'[39m
+System.Management.Automation.RemoteException
+[2mCompared values have no visual difference.[22m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m80:20[22m[39m
+    [90m 78| [39m      const body = response.json();
+    [90m 79| [39m      expect(body).toHaveProperty('id');
+    [90m 80| [39m      expect(body).toHaveProperty('title', 'Test Book');
+    [90m   | [39m                   [31m^[39m
+    [90m 81| [39m    });
+    [90m 82| [39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[10/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPOST /api/v2/items[2m > [22mshould return created item with all properties
+[31m[1mAssertionError[22m: expected undefined to be 'Another Book' // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected:[39m 
+"Another Book"
+System.Management.Automation.RemoteException
+[31m+ Received:[39m 
+undefined
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m98:26[22m[39m
+    [90m 96| [39m
+    [90m 97| [39m      const body = response.json();
+    [90m 98| [39m      expect(body.title).toBe(itemData.title);
+    [90m   | [39m                         [31m^[39m
+    [90m 99| [39m      expect(body.author).toBe(itemData.author);
+    [90m100| [39m      expect(body.genre).toBe(itemData.genre);
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[11/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items/:id[2m > [22mshould return 200 and item details
+[31m[1mAssertionError[22m: expected { id: 3, description: null } to have property "title" with value 'Test Item'[39m
+System.Management.Automation.RemoteException
+[2mCompared values have no visual difference.[22m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m132:20[22m[39m
+    [90m130| [39m      const body = response.json();
+    [90m131| [39m      expect(body).toHaveProperty('id', itemId);
+    [90m132| [39m      expect(body).toHaveProperty('title', 'Test Item');
+    [90m   | [39m                   [31m^[39m
+    [90m133| [39m    });
+    [90m134| [39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[12/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mGET /api/v2/items/:id[2m > [22mshould return 404 for non-existent item
+[31m[1mAssertionError[22m: expected 200 to be 404 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 404[39m
+[31m+ 200[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m141:35[22m[39m
+    [90m139| [39m      });
+    [90m140| [39m
+    [90m141| [39m      expect(response.statusCode).toBe(404);
+    [90m   | [39m                                  [31m^[39m
+    [90m142| [39m      expect(response.json()).toHaveProperty('message', 'Book not founтАж
+    [90m143| [39m    });
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[13/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPUT /api/v2/items/:id[2m > [22mshould update item and return 200
+[31m[1mAssertionError[22m: expected { id: 5, description: null } to have property "title" with value 'Updated Title'[39m
+System.Management.Automation.RemoteException
+[2mCompared values have no visual difference.[22m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m176:20[22m[39m
+    [90m174| [39m      expect(response.statusCode).toBe(200);
+    [90m175| [39m      const body = response.json();
+    [90m176| [39m      expect(body).toHaveProperty('title', 'Updated Title');
+    [90m   | [39m                   [31m^[39m
+    [90m177| [39m    });
+    [90m178| [39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[14/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mPUT /api/v2/items/:id[2m > [22mshould return 404 when updating non-existent item
+[31m[1mAssertionError[22m: expected 200 to be 404 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 404[39m
+[31m+ 200[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m188:35[22m[39m
+    [90m186| [39m      });
+    [90m187| [39m
+    [90m188| [39m      expect(response.statusCode).toBe(404);
+    [90m   | [39m                                  [31m^[39m
+    [90m189| [39m    });
+    [90m190| [39m  });
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[15/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/routes/items.routes.test.js[2m > [22mItems Routes Integration[2m > [22mDELETE /api/v2/items/:id[2m > [22mshould return 404 when deleting non-existent item
+[31m[1mAssertionError[22m: expected 200 to be 404 // Object.is equality[39m
+System.Management.Automation.RemoteException
+[32m- Expected[39m
+[31m+ Received[39m
+System.Management.Automation.RemoteException
+[32m- 404[39m
+[31m+ 200[39m
+System.Management.Automation.RemoteException
+[36m [2mтЭп[22m test/routes/items.routes.test.js:[2m226:35[22m[39m
+    [90m224| [39m      });
+    [90m225| [39m
+    [90m226| [39m      expect(response.statusCode).toBe(404);
+    [90m   | [39m                                  [31m^[39m
+    [90m227| [39m    });
+    [90m228| [39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[16/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mregister[2m > [22mshould hash password before storing
+[31m[1mAssertionError[22m: expected "hash" to be called with arguments: [ 'password123' ][90m
+System.Management.Automation.RemoteException
+Received: 
+System.Management.Automation.RemoteException
+[31m[90m
+System.Management.Automation.RemoteException
+Number of calls: [1m0[22m
+[31m[39m
+[36m [2mтЭп[22m test/services/auth.service.test.js:[2m81:27[22m[39m
+    [90m 79| [39m      });
+    [90m 80| [39m
+    [90m 81| [39m      expect(argon2.hash).toHaveBeenCalledWith('password123');
+    [90m   | [39m                          [31m^[39m
+    [90m 82| [39m    });
+    [90m 83| [39m  });
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[17/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mlogin[2m > [22mshould return tokens on successful login
+[31m[1mTypeError[22m: pchstr must contain a $ as first char[39m
+[90m [2mтЭп[22m deserialize node_modules/@phc/format/index.js:[2m147:11[22m[39m
+[90m [2mтЭп[22m Object.verify node_modules/argon2/argon2.cjs:[2m166:27[22m[39m
+[36m [2mтЭп[22m Object.login src/services/auth.service.js:[2m41:31[22m[39m
+    [90m 39| [39m      if (!user) return null;
+    [90m 40| [39m
+    [90m 41| [39m      const ok = await argon2.verify(user.password, password);
+    [90m   | [39m                              [31m^[39m
+    [90m 42| [39m      if (!ok) return null;
+    [90m 43| [39m
+[90m [2mтЭп[22m test/services/auth.service.test.js:[2m91:22[22m[39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[18/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mlogin[2m > [22mshould return null if password is incorrect
+[31m[1mTypeError[22m: pchstr must contain a $ as first char[39m
+[90m [2mтЭп[22m deserialize node_modules/@phc/format/index.js:[2m147:11[22m[39m
+[90m [2mтЭп[22m Object.verify node_modules/argon2/argon2.cjs:[2m166:27[22m[39m
+[36m [2mтЭп[22m Object.login src/services/auth.service.js:[2m41:31[22m[39m
+    [90m 39| [39m      if (!user) return null;
+    [90m 40| [39m
+    [90m 41| [39m      const ok = await argon2.verify(user.password, password);
+    [90m   | [39m                              [31m^[39m
+    [90m 42| [39m      if (!ok) return null;
+    [90m 43| [39m
+[90m [2mтЭп[22m test/services/auth.service.test.js:[2m117:22[22m[39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[19/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[31m[1m[7m FAIL [27m[22m[39m test/services/auth.service.test.js[2m > [22mAuthService[2m > [22mlogin[2m > [22mshould verify password with argon2
+[31m[1mTypeError[22m: pchstr must contain a $ as first char[39m
+[90m [2mтЭп[22m deserialize node_modules/@phc/format/index.js:[2m147:11[22m[39m
+[90m [2mтЭп[22m Object.verify node_modules/argon2/argon2.cjs:[2m166:27[22m[39m
+[36m [2mтЭп[22m Object.login src/services/auth.service.js:[2m41:31[22m[39m
+    [90m 39| [39m      if (!user) return null;
+    [90m 40| [39m
+    [90m 41| [39m      const ok = await argon2.verify(user.password, password);
+    [90m   | [39m                              [31m^[39m
+    [90m 42| [39m      if (!ok) return null;
+    [90m 43| [39m
+[90m [2mтЭп[22m test/services/auth.service.test.js:[2m130:7[22m[39m
+System.Management.Automation.RemoteException
+[31m[2mтОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОптОп[20/20]тОп[22m[39m
+System.Management.Automation.RemoteException
+[2m Test Files [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[31m20 failed[39m[22m[2m | [22m[1m[32m27 passed[39m[22m[90m (47)[39m
+[2m   Start at [22m 00:48:35
+[2m   Duration [22m 3.76s[2m (transform 88ms, setup 5.85s, collect 165ms, tests 5.14s, environment 1ms, prepare 976ms)[22m
+

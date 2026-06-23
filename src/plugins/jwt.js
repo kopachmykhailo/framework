@@ -6,19 +6,11 @@ export default fp(async (fastify) => {
     secret: fastify.config.JWT_SECRET,
   });
 
-  fastify.decorate('authenticate', async function (request, reply) {
+  fastify.decorate('authenticate', async (req, reply) => {
     try {
-      await request.jwtVerify();
-
-      const token = request.headers.authorization?.replace('Bearer ', '');
-
-      const blacklisted = await fastify.redis.get(`blacklist:${token}`);
-
-      if (blacklisted) {
-        return reply.code(401).send({ message: 'Token revoked' });
-      }
+      await req.jwtVerify();
     } catch (err) {
-      return reply.code(401).send(err);
+      return reply.code(401).send({ message: 'Unauthorized' });
     }
   });
 });

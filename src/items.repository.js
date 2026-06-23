@@ -7,8 +7,11 @@ export function createItemsRepository(db) {
       return db
         .select({
           id: items.id,
-          name: items.name,
-          description: items.description,
+          title: items.title,
+          author: items.author,
+          genre: items.genre,
+          year: items.year,
+          image: items.image,
         })
         .from(items)
         .orderBy(items.id);
@@ -18,8 +21,11 @@ export function createItemsRepository(db) {
       const rows = await db
         .select({
           id: items.id,
-          name: items.name,
-          description: items.description,
+          title: items.title,
+          author: items.author,
+          genre: items.genre,
+          year: items.year,
+          image: items.image,
         })
         .from(items)
         .where(eq(items.id, id))
@@ -29,17 +35,23 @@ export function createItemsRepository(db) {
     },
 
     async create(data) {
-      const { name, description = null } = data;
+      const { title, author, genre, year, image = null } = data;
 
       const result = await db.insert(items).values({
-        name,
-        description,
+        title,
+        author,
+        genre,
+        year,
+        image,
       });
 
       return {
         id: result?.[0]?.insertId ?? null,
-        name,
-        description,
+        title,
+        author,
+        genre,
+        year,
+        image,
       };
     },
 
@@ -48,8 +60,11 @@ export function createItemsRepository(db) {
       if (!existing) return null;
 
       const updated = {
-        name: body.name ?? existing.name,
-        description: body.description ?? existing.description,
+        title: body.title ?? existing.title,
+        author: body.author ?? existing.author,
+        genre: body.genre ?? existing.genre,
+        year: body.year ?? existing.year,
+        image: body.image ?? existing.image,
       };
 
       await db.update(items).set(updated).where(eq(items.id, id));

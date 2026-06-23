@@ -12,6 +12,7 @@ import fastifyCookie from '@fastify/cookie';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
 
+import fs from 'fs/promises';
 import path from 'path';
 
 import { envSchema } from './schemas/env.schema.js';
@@ -33,7 +34,7 @@ import redisPlugin from './plugins/redis.js';
 import rateLimitPlugin from './plugins/rateLimit.js';
 import jwtPlugin from './plugins/jwt.js';
 
-export async function buildApp() {
+export async function buildApp(options = {}) {
   const fastify = Fastify({
     logger: {
       level: process.env.NODE_ENV === 'production' ? 'error' : 'info',
@@ -42,7 +43,9 @@ export async function buildApp() {
 
   await fastify.register(fastifyEnv, {
     schema: envSchema,
-    dotenv: { path: '.env' },
+    dotenv: {
+      path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+    },
   });
 
   await fastify.after();
@@ -56,7 +59,10 @@ export async function buildApp() {
   await fastify.register(rateLimitPlugin);
   await fastify.register(fastifyWebsocket);
 
-  await createBackup(fastify);
+  const skipBackup = options.skipBackup ?? fastify.config.NODE_ENV === 'test';
+  if (!skipBackup) {
+    await createBackup(fastify);
+  }
 
   await fastify.register(fastifySwagger, {
     openapi: {
@@ -83,6 +89,10 @@ export async function buildApp() {
 
   await fastify.register(fastifyMultipart, {
     limits: { fileSize: 5 * 1024 * 1024 },
+  });
+
+  await fs.mkdir(path.join(process.cwd(), 'uploads'), {
+    recursive: true,
   });
 
   await fastify.register(fastifyStatic, {

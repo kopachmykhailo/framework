@@ -1,9 +1,12 @@
-import { mysqlTable, int, varchar, text } from 'drizzle-orm/mysql-core';
+import { mysqlTable, int, varchar } from 'drizzle-orm/mysql-core';
 
 export const items = mysqlTable('items', {
   id: int('id').primaryKey().autoincrement(),
-  name: varchar('name', { length: 255 }).notNull(),
-  description: text('description'),
+  title: varchar('title', { length: 255 }).notNull(),
+  author: varchar('author', { length: 255 }).notNull(),
+  genre: varchar('genre', { length: 255 }).notNull(),
+  year: int('year').notNull(),
+  image: varchar('image', { length: 255 }),
 });
 
 export const users = mysqlTable('users', {

@@ -1,6 +1,5 @@
 import fs from 'fs/promises';
 import path from 'path';
-
 import { stringify } from 'csv/sync';
 
 import { Readable, Transform } from 'stream';
@@ -21,31 +20,21 @@ export default async function (fastify) {
   fastify.get('/items', async (request) => {
     const items = await itemsRepository.findAll();
 
-    if (request.routerPath?.includes('/items')) {
-      const url = request.raw.url;
+    const page = Number(request.query.page) || 1;
+    const limit = Number(request.query.limit) || 10;
 
-      if (url.startsWith('/api/v2')) {
-        const page = Number(request.query.page) || 1;
-        const limit = Number(request.query.limit) || 10;
+    const start = (page - 1) * limit;
+    const end = start + limit;
 
-        const start = (page - 1) * limit;
-        const end = start + limit;
-
-        const data = items.slice(start, end);
-
-        return {
-          data,
-          meta: {
-            total: items.length,
-            page,
-            limit,
-            totalPages: Math.ceil(items.length / limit),
-          },
-        };
-      }
-    }
-
-    return items;
+    return {
+      data: items.slice(start, end),
+      meta: {
+        total: items.length,
+        page,
+        limit,
+        totalPages: Math.ceil(items.length / limit),
+      },
+    };
   });
 
   // DETAILS + FETCH + CACHE + RETRY

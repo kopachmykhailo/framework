@@ -3,7 +3,10 @@ import { ERROR_MESSAGES } from '../constants/messages.js';
 export default async function healthRoutes(fastify) {
   // PUBLIC HEALTH
   fastify.get('/health', async () => {
-    return { status: 'ok' };
+    return {
+      status: 'ok',
+      timestamp: Date.now(),
+    };
   });
 
   // PRIVATE HEALTH
