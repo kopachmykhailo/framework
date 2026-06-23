@@ -1,38 +1,47 @@
 import { buildApp } from './app.js';
 
 const start = async () => {
-  const fastify = await buildApp();
+  try {
+    const fastify = await buildApp();
 
-  await fastify.ready();
+    await fastify.ready();
 
-  await fastify.listen({
-    port: fastify.config.PORT,
-    host: fastify.config.HOSTNAME,
-  });
+    await fastify.listen({
+      port: fastify.config.PORT,
+      host: fastify.config.HOSTNAME,
+    });
 
-  const gracefulShutdown = async (signal) => {
-    fastify.log.info(`Received ${signal}`);
+    fastify.log.info(
+      `Server running at http://${fastify.config.HOSTNAME}:${fastify.config.PORT}`,
+    );
 
-    const timeout = setTimeout(() => process.exit(1), 10000);
+    const gracefulShutdown = async (signal) => {
+      fastify.log.info(`Received ${signal}`);
 
-    await fastify.close();
+      const timeout = setTimeout(() => process.exit(1), 10000);
 
-    clearTimeout(timeout);
-    process.exit(0);
-  };
+      await fastify.close();
 
-  process.on('SIGINT', () => gracefulShutdown('SIGINT'));
-  process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
+      clearTimeout(timeout);
+      process.exit(0);
+    };
 
-  process.on('uncaughtException', (err) => {
-    fastify.log.error(err);
-    gracefulShutdown('uncaughtException');
-  });
+    process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+    process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 
-  process.on('unhandledRejection', (err) => {
-    fastify.log.error(err);
-    gracefulShutdown('unhandledRejection');
-  });
+    process.on('uncaughtException', (err) => {
+      fastify.log.error(err);
+      gracefulShutdown('uncaughtException');
+    });
+
+    process.on('unhandledRejection', (err) => {
+      fastify.log.error(err);
+      gracefulShutdown('unhandledRejection');
+    });
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 };
 
 start();

@@ -1,8 +1,9 @@
-import fastifyRedis from '@fastify/redis';
+import fp from 'fastify-plugin';
+import redis from '@fastify/redis';
 
-export default async function redisPlugin(fastify) {
-  fastify.register(fastifyRedis, {
-    host: process.env.REDIS_HOST,
-    port: Number(process.env.REDIS_PORT),
+export default fp(async (fastify) => {
+  fastify.register(redis, {
+    host: fastify.config.REDIS_HOST,
+    port: fastify.config.REDIS_PORT,
   });
-}
+});

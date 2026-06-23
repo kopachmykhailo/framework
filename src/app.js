@@ -7,6 +7,7 @@ import fastifySensible from '@fastify/sensible';
 import fastifyMultipart from '@fastify/multipart';
 import fastifyStatic from '@fastify/static';
 import fastifyWebsocket from '@fastify/websocket';
+import fastifyCookie from '@fastify/cookie';
 
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
@@ -21,6 +22,7 @@ import itemsRoutes from './routes/items.route.js';
 import githubRoutes from './routes/github.route.js';
 import wsRoutes from './routes/ws.route.js';
 import backupRoutes from './routes/backup.routes.js';
+import authRoutes from './routes/auth.routes.js';
 
 // backup
 import { createBackup } from './backup.js';
@@ -29,6 +31,7 @@ import { createBackup } from './backup.js';
 import dbPlugin from './db/index.js';
 import redisPlugin from './plugins/redis.js';
 import rateLimitPlugin from './plugins/rateLimit.js';
+import jwtPlugin from './plugins/jwt.js';
 
 export async function buildApp() {
   const fastify = Fastify({
@@ -39,22 +42,18 @@ export async function buildApp() {
 
   await fastify.register(fastifyEnv, {
     schema: envSchema,
-    dotenv: {
-      path: '.env',
-    },
+    dotenv: { path: '.env' },
   });
 
   await fastify.after();
 
-  // DB first
+  await fastify.register(fastifyCookie);
+
   await fastify.register(dbPlugin);
-
-  // Redis second (важливо для rate-limit і cache)
   await fastify.register(redisPlugin);
+  await fastify.register(jwtPlugin);
 
-  // Rate limit (використовує Redis)
   await fastify.register(rateLimitPlugin);
-
   await fastify.register(fastifyWebsocket);
 
   await createBackup(fastify);
@@ -74,19 +73,16 @@ export async function buildApp() {
 
   await fastify.register(fastifyCors, {
     origin: true,
+    credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   });
 
-  await fastify.register(fastifyHelmet, {
-    global: true,
-  });
+  await fastify.register(fastifyHelmet);
 
   await fastify.register(fastifySensible);
 
   await fastify.register(fastifyMultipart, {
-    limits: {
-      fileSize: 5 * 1024 * 1024,
-    },
+    limits: { fileSize: 5 * 1024 * 1024 },
   });
 
   await fastify.register(fastifyStatic, {
@@ -106,15 +102,14 @@ export async function buildApp() {
 
   await fastify.register(healthRoutes, { prefix: '/api/v1' });
   await fastify.register(itemsRoutes, { prefix: '/api/v2' });
+  await fastify.register(authRoutes, { prefix: '/api/v1' });
 
   await fastify.register(githubRoutes, { prefix: '/api/v1/github' });
   await fastify.register(githubRoutes, { prefix: '/api/v2/github' });
 
   await fastify.register(wsRoutes);
 
-  await fastify.register(backupRoutes, {
-    prefix: '/api/v1',
-  });
+  await fastify.register(backupRoutes, { prefix: '/api/v1' });
 
   return fastify;
 }
