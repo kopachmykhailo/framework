@@ -6,35 +6,29 @@ import { pipeline } from 'stream/promises';
 import { PassThrough } from 'stream';
 import { createGzip } from 'zlib';
 
-const ITEMS_DIR = path.join(process.cwd(), 'data', 'items');
+import { createItemsRepository } from './items.repository.js';
+
 const BACKUPS_DIR = path.join(process.cwd(), 'data', 'backups');
 
-export async function createBackup() {
+export async function createBackup(fastify) {
   await fsPromises.mkdir(BACKUPS_DIR, {
     recursive: true,
   });
 
   const timestamp = Date.now().toString();
-
   const backupFile = path.join(BACKUPS_DIR, `${timestamp}.gz`);
 
-  const files = await fsPromises.readdir(ITEMS_DIR);
+  const itemsRepository = createItemsRepository(fastify.db);
+  const items = await itemsRepository.findAll();
 
   const source = new PassThrough();
-
   const gzip = createGzip();
-
   const destination = fs.createWriteStream(backupFile);
 
   const pipelinePromise = pipeline(source, gzip, destination);
 
-  for (const file of files) {
-    const content = await fsPromises.readFile(
-      path.join(ITEMS_DIR, file),
-      'utf8',
-    );
-
-    source.write(content + '\n');
+  for (const item of items) {
+    source.write(JSON.stringify(item) + '\n');
   }
 
   source.end();
@@ -42,7 +36,6 @@ export async function createBackup() {
   await pipelinePromise;
 
   const backups = await fsPromises.readdir(BACKUPS_DIR);
-
   const gzipBackups = backups.filter((file) => file.endsWith('.gz')).sort();
 
   if (gzipBackups.length > 5) {

@@ -32,23 +32,19 @@ const db = await mysql.createConnection({
   database: process.env.MYSQL_DB,
 });
 
-const [rows] = await db.query('SELECT COUNT(*) AS count FROM books');
-const count = rows[0].count;
+await db.query('DELETE FROM books');
+await db.query('ALTER TABLE books AUTO_INCREMENT = 1');
 
-if (count === 0) {
-  for (const book of books) {
-    await db.query(
-      `
-        INSERT INTO books (title, author, year, genre, image)
-        VALUES (?, ?, ?, ?, ?)
-      `,
-      [book.title, book.author, book.year, book.genre, book.image],
-    );
-  }
-
-  console.log('Seed complete');
-} else {
-  console.log('Database is not empty. Seed skipped.');
+for (const book of books) {
+  await db.query(
+    `
+      INSERT INTO books (title, author, year, genre, image)
+      VALUES (?, ?, ?, ?, ?)
+    `,
+    [book.title, book.author, book.year, book.genre, book.image],
+  );
 }
+
+console.log('Force seed complete');
 
 await db.end();

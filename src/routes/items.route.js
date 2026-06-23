@@ -6,13 +6,7 @@ import { stringify } from 'csv/sync';
 import { Readable, Transform } from 'stream';
 import { pipeline } from 'stream/promises';
 
-import {
-  findAll,
-  findById,
-  create,
-  update,
-  remove,
-} from '../items.repository.js';
+import { createItemsRepository } from '../items.repository.js';
 
 import { fetchGenres } from '../services/external.service.js';
 
@@ -21,9 +15,11 @@ import { NdjsonTransform } from '../transforms/NdjsonTransform.js';
 import { eventBus } from '../events/eventBus.js';
 
 export default async function (fastify) {
+  const itemsRepository = createItemsRepository(fastify.db);
+
   // GET ALL ITEMS
   fastify.get('/items', async (request) => {
-    const items = await findAll();
+    const items = await itemsRepository.findAll();
 
     if (request.routerPath?.includes('/items')) {
       const url = request.raw.url;
@@ -55,7 +51,13 @@ export default async function (fastify) {
   // DETAILS + FETCH + CACHE + RETRY
   fastify.get('/items/:id/details', async (request, reply) => {
     try {
-      const item = await findById(request.params.id);
+      const item = await itemsRepository.findById(request.params.id);
+
+      if (!item) {
+        return reply.code(404).send({
+          message: 'Book not found',
+        });
+      }
 
       const genres = await fetchGenres();
 
@@ -82,7 +84,13 @@ export default async function (fastify) {
   // GET BY ID
   fastify.get('/items/:id', async (request, reply) => {
     try {
-      const item = await findById(request.params.id);
+      const item = await itemsRepository.findById(request.params.id);
+
+      if (!item) {
+        return reply.code(404).send({
+          message: 'Book not found',
+        });
+      }
 
       return item;
     } catch {
@@ -94,7 +102,7 @@ export default async function (fastify) {
 
   // CREATE
   fastify.post('/items', async (request, reply) => {
-    const item = await create(request.body);
+    const item = await itemsRepository.create(request.body);
 
     eventBus.emit('created', item);
 
@@ -104,7 +112,16 @@ export default async function (fastify) {
   // UPDATE
   fastify.put('/items/:id', async (request, reply) => {
     try {
-      const item = await update(request.params.id, request.body);
+      const item = await itemsRepository.update(
+        request.params.id,
+        request.body,
+      );
+
+      if (!item) {
+        return reply.code(404).send({
+          message: 'Book not found',
+        });
+      }
 
       eventBus.emit('updated', item);
 
@@ -119,7 +136,13 @@ export default async function (fastify) {
   // DELETE
   fastify.delete('/items/:id', async (request, reply) => {
     try {
-      await remove(request.params.id);
+      const removed = await itemsRepository.remove(request.params.id);
+
+      if (!removed) {
+        return reply.code(404).send({
+          message: 'Book not found',
+        });
+      }
 
       eventBus.emit('deleted', request.params.id);
 
@@ -135,7 +158,7 @@ export default async function (fastify) {
 
   // EXPORT CSV
   fastify.get('/items/export', async (request, reply) => {
-    const items = await findAll();
+    const items = await itemsRepository.findAll();
 
     const transformEnabled = request.query.transform === 'true';
 
@@ -165,7 +188,6 @@ export default async function (fastify) {
     });
 
     reply.header('Content-Disposition', 'attachment; filename="items.csv"');
-
     reply.type('text/csv');
 
     return csv;
@@ -173,7 +195,7 @@ export default async function (fastify) {
 
   // STREAM ITEMS
   fastify.get('/items/stream', async (request, reply) => {
-    const items = await findAll();
+    const items = await itemsRepository.findAll();
 
     reply.type('application/x-ndjson');
 
@@ -187,13 +209,12 @@ export default async function (fastify) {
     const file = await request.file();
 
     const text = (await file.toBuffer()).toString();
-
     const items = JSON.parse(text);
 
     let imported = 0;
 
     for (const item of items) {
-      await create(item);
+      await itemsRepository.create(item);
       imported++;
     }
 
@@ -203,10 +224,22 @@ export default async function (fastify) {
   });
 
   // UPLOAD IMAGE
-  fastify.post('/items/:id/image', async (request) => {
+  fastify.post('/items/:id/image', async (request, reply) => {
+    const existingItem = await itemsRepository.findById(request.params.id);
+
+    if (!existingItem) {
+      return reply.code(404).send({
+        message: 'Book not found',
+      });
+    }
+
     const data = await request.file();
 
-    const folder = path.join(process.cwd(), 'uploads', request.params.id);
+    const folder = path.join(
+      process.cwd(),
+      'uploads',
+      String(request.params.id),
+    );
 
     await fs.mkdir(folder, {
       recursive: true,
@@ -216,7 +249,7 @@ export default async function (fastify) {
 
     await fs.writeFile(path.join(folder, 'image.jpg'), buffer);
 
-    await update(request.params.id, {
+    await itemsRepository.update(request.params.id, {
       image: `/uploads/${request.params.id}/image.jpg`,
     });
 

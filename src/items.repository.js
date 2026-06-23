@@ -1,60 +1,105 @@
-import fs from 'fs/promises';
-import path from 'path';
+export function createItemsRepository(db) {
+  return {
+    async findAll() {
+      const [rows] = await db.query(`
+        SELECT id, title, author, year, genre, image
+        FROM books
+        ORDER BY id ASC
+      `);
 
-import itemModel from './models/item.model.js';
-import { writeAtomic } from './writeAtomic.js';
+      return rows;
+    },
 
-const DATA_DIR = path.join(process.cwd(), 'data', 'items');
+    async findById(id) {
+      const [rows] = await db.query(
+        `
+          SELECT id, title, author, year, genre, image
+          FROM books
+          WHERE id = ?
+          LIMIT 1
+        `,
+        [id],
+      );
 
-const getFilePath = (id) => path.join(DATA_DIR, `${id}.json`);
+      return rows[0] ?? null;
+    },
 
-export const findAll = async () => {
-  const files = await fs.readdir(DATA_DIR);
+    async create(data) {
+      const { title, author, year, genre, image = null } = data;
 
-  const items = [];
+      const [result] = await db.query(
+        `
+          INSERT INTO books (title, author, year, genre, image)
+          VALUES (?, ?, ?, ?, ?)
+        `,
+        [title, author, year, genre, image],
+      );
 
-  for (const file of files) {
-    const content = await fs.readFile(path.join(DATA_DIR, file), 'utf8');
+      return {
+        id: result.insertId,
+        title,
+        author,
+        year,
+        genre,
+        image,
+      };
+    },
 
-    items.push(JSON.parse(content));
-  }
+    async update(id, body) {
+      const existing = await this.findById(id);
 
-  return items;
-};
+      if (!existing) {
+        return null;
+      }
 
-export const findById = async (id) => {
-  const content = await fs.readFile(getFilePath(id), 'utf8');
+      const updated = {
+        title: body.title ?? existing.title,
+        author: body.author ?? existing.author,
+        year: body.year ?? existing.year,
+        genre: body.genre ?? existing.genre,
+        image: Object.prototype.hasOwnProperty.call(body, 'image')
+          ? body.image
+          : existing.image,
+      };
 
-  return JSON.parse(content);
-};
+      await db.query(
+        `
+          UPDATE books
+          SET title = ?, author = ?, year = ?, genre = ?, image = ?
+          WHERE id = ?
+        `,
+        [
+          updated.title,
+          updated.author,
+          updated.year,
+          updated.genre,
+          updated.image,
+          id,
+        ],
+      );
 
-export const create = async (data) => {
-  const id = Date.now().toString();
+      return {
+        id: Number(id),
+        ...updated,
+      };
+    },
 
-  const item = {
-    ...itemModel,
-    ...data,
-    id,
+    async remove(id) {
+      const existing = await this.findById(id);
+
+      if (!existing) {
+        return null;
+      }
+
+      await db.query(
+        `
+          DELETE FROM books
+          WHERE id = ?
+        `,
+        [id],
+      );
+
+      return existing;
+    },
   };
-
-  await writeAtomic(getFilePath(id), item);
-
-  return item;
-};
-
-export const update = async (id, body) => {
-  const current = await findById(id);
-
-  const updated = {
-    ...current,
-    ...body,
-  };
-
-  await writeAtomic(getFilePath(id), updated);
-
-  return updated;
-};
-
-export const remove = async (id) => {
-  await fs.unlink(getFilePath(id));
-};
+}
